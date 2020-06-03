@@ -37,19 +37,17 @@ class MainScreen extends StatelessWidget {
             text: "simon@simonit.dev",
           ),
           validator: (text) {
-            return text.validateEmail().ifTrue(
-                  "",
-                  "Not a valid email address!",
-                );
+            return text
+                .validateEmail()
+                .ifTrue("", "Not a valid email address!");
           },
           autovalidate: true,
         ).padHorizontal().marginTop(),
         Container(
           color: context.theme.primaryColor,
-          child: Text("Show Dialog",
-            style: context.textTheme.button.copyWith(
-                color: Colors.white
-            ),
+          child: Text(
+            "Show Dialog",
+            style: context.textTheme.button.copyWith(color: Colors.white),
           ).spaceAround(2),
         ).roundedBorder().center().tappable(onTap: () {
           context.showAlertDialog(
@@ -62,9 +60,7 @@ class MainScreen extends StatelessWidget {
               color: context.theme.primaryColor,
               child: Text(
                 "Hide keyboard",
-                style: context.textTheme.button.copyWith(
-                  color: Colors.white
-                ),
+                style: context.textTheme.button.copyWith(color: Colors.white),
               ).spaceAround(1.5).center(),
             ).roundedBorder(FludaX.x4).tappable(onTap: () {
               context.hideKeyboard();
