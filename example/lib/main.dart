@@ -10,21 +10,68 @@ class FludaExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Fluda Demo',
-      home: Scaffold(
-        body: Column(
-          children: <Widget>[
-            Text(
-              fludaDescription,
-              style: context.textTheme.bodyText1,
-            ).padHorizontal(),
-            Text("Show Dialog").tappable(onTap: () {
-              context.showAlertDialog(
-                message: "This is a dummy message",
-              );
-            }).center(),
-          ],
-        ),
+      home: MainScreen(),
+    );
+  }
+}
+
+class MainScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: _buildBody(context),
       ),
+    );
+  }
+
+  Widget _buildBody(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        Text(
+          fludaDescription,
+          style: context.textTheme.bodyText1,
+        ).padHorizontal().marginTop(),
+        TextFormField(
+          controller: TextEditingController(
+            text: "simon@simonit.dev",
+          ),
+          validator: (text) {
+            return text.validateEmail().ifTrue(
+                  "",
+                  "Not a valid email address!",
+                );
+          },
+          autovalidate: true,
+        ).padHorizontal().marginTop(),
+        Container(
+          color: context.theme.primaryColor,
+          child: Text("Show Dialog",
+            style: context.textTheme.button.copyWith(
+                color: Colors.white
+            ),
+          ).spaceAround(2),
+        ).roundedBorder().center().tappable(onTap: () {
+          context.showAlertDialog(
+            message: "This is a dummy message",
+          );
+        }).marginTop(),
+        Row(
+          children: <Widget>[
+            Container(
+              color: context.theme.primaryColor,
+              child: Text(
+                "Hide keyboard",
+                style: context.textTheme.button.copyWith(
+                  color: Colors.white
+                ),
+              ).spaceAround(1.5).center(),
+            ).roundedBorder(FludaX.x4).tappable(onTap: () {
+              context.hideKeyboard();
+            }).expand(),
+          ],
+        ).padHorizontal().marginTop(),
+      ],
     );
   }
 }
