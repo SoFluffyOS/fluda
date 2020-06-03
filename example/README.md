@@ -1,4 +1,7 @@
 # Fluda Basic Example Usage
+
+*Note*: This documentation hasn't been finished yet. There may be some part of the instruction is missing. Please stay tuned.
+
 ### Extensions
 #### BuildContext
 |Extension|Example Usage|Original Equivalent|
