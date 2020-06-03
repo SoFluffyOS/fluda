@@ -1,6 +1,6 @@
 name: fluda
 description: Fluda is a library which makes Flutter application development faster and easier. It makes your code clean and easy to read.
-version: 0.0.1
+version: 0.1.0
 homepage: https://fluda.simonit.dev
 
 environment:
