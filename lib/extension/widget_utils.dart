@@ -117,7 +117,6 @@ extension WidgetExt on Widget {
   }
 
   Widget tappable({
-    Widget child,
     GestureTapCallback onTap,
     GestureTapCallback onDoubleTap,
     GestureLongPressCallback onLongPress,
