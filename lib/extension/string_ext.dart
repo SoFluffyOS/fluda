@@ -26,6 +26,17 @@ extension StringExt on String {
   /// Return `true` if the string [this] is `null` or empty
   bool get isEmptyOrNull => this == null || isEmpty;
 
+  /// Parse `this` string as a, possibly signed, integer literal
+  /// and return its value.
+  int toInt() {
+    return int.parse(this);
+  }
+
+  /// Parse `this` string as an double literal and return its value.
+  double toDouble() {
+    return double.parse(this);
+  }
+
   /// Returns whether the regular expression `pattern`
   /// has a match in `this` string.
   ///
