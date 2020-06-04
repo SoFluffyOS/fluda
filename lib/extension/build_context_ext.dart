@@ -22,6 +22,7 @@ import 'package:fluda/constants/numbers.dart';
 import 'package:flutter/material.dart';
 
 import 'bool_ext.dart';
+import 'focus_scope_node_ext.dart';
 
 extension BuildContextExt on BuildContext {
   /// Hide the soft keyboard off the screen.
@@ -30,9 +31,7 @@ extension BuildContextExt on BuildContext {
   /// Should use [context.focus.hideKeyboard()] instead.
   @deprecated
   void hideKeyboard() {
-    if (!this.focus.hasPrimaryFocus) {
-      this.focus.unfocus();
-    }
+    this.focus.hideKeyboard();
   }
 
   /// Contains information about the current media.
@@ -72,7 +71,7 @@ extension BuildContextExt on BuildContext {
   /// Should call [context.theme.textTheme] instead.
   @deprecated
   TextTheme get textTheme {
-    return Theme.of(this).textTheme;
+    return theme.textTheme;
   }
 
   /// The state from the closest instance of this class that encloses the given
@@ -129,20 +128,20 @@ extension BuildContextExt on BuildContext {
           title: (title != null).ifTrue(
             Text(
               title ?? "",
-              style: context.textTheme.headline5,
+              style: context.theme.textTheme.headline5,
             ),
           ),
           content: Text(
             message ?? "",
-            style: context.textTheme.headline6,
+            style: context.theme.textTheme.headline6,
           ),
           actions: <Widget>[
             FlatButton(
               child: Text(
                 closeButtonTitle,
-                style: context.textTheme.button,
+                style: context.theme.textTheme.button,
               ),
-              onPressed: () => this.pop(),
+              onPressed: () => this.navigator.pop(),
             ),
           ],
         );

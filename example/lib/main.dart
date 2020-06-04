@@ -30,7 +30,7 @@ class MainScreen extends StatelessWidget {
       children: <Widget>[
         Text(
           fludaDescription,
-          style: context.textTheme.bodyText1,
+          style: context.theme.textTheme.bodyText1,
         ).padHorizontal().marginTop(),
         TextFormField(
           controller: TextEditingController(
@@ -47,7 +47,7 @@ class MainScreen extends StatelessWidget {
           color: context.theme.primaryColor,
           child: Text(
             "Show Dialog",
-            style: context.textTheme.button.copyWith(color: Colors.white),
+            style: context.theme.primaryTextTheme.button,
           ).spaceAround(2),
         ).roundedBorder().center().tappable(onTap: () {
           context.showAlertDialog(
@@ -60,10 +60,10 @@ class MainScreen extends StatelessWidget {
               color: context.theme.primaryColor,
               child: Text(
                 "Hide keyboard",
-                style: context.textTheme.button.copyWith(color: Colors.white),
+                style: context.theme.primaryTextTheme.button,
               ).spaceAround(1.5).center(),
             ).roundedBorder(FludaX.x4).tappable(onTap: () {
-              context.hideKeyboard();
+              context.focus.hideKeyboard();
             }).expand(),
           ],
         ).padHorizontal().marginTop(),
