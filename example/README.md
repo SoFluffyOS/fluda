@@ -33,7 +33,7 @@
 #### String
 |Extension|Example Usage|Original Equivalent|
 |---|---|---|
-|`bool get isEmptyOrNull`|`"Hello".isEmptyOrNull`|`"Hello" == null ⎮⎮ isEmpty`|
+|`bool get isEmptyOrNull`|`"Hello".isEmptyOrNull`|`"Hello" == null ⎮⎮ "Hello".isEmpty`|
 |`bool validateEmail()`|`"email@email.com".validateEmail()`|`RegExp(emailRegex).hasMatch("email@email.com")`|
 |`Future launch()`|`"https://some.url".launch()`|`if (await url.canLaunch(this)) url.launch(this)`|
 
