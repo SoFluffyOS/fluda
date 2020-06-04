@@ -35,6 +35,8 @@ extension NumExt on num {
 }
 
 extension IntExt on int {
+  /// Return an [Iterable] which generates its elements dynamically
+  /// begin from [this] number to [end] number
   Iterable<int> to(int end, {int step = 1}) {
     if (step < 1) {
       throw ArgumentError(
