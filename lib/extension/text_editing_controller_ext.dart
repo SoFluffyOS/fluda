@@ -21,6 +21,7 @@
 import 'package:flutter/widgets.dart';
 
 extension TextEditingControllerExt on TextEditingController {
+  /// Select all the [text]
   void selectAll() {
     this.selection = TextSelection(
       baseOffset: 0,
