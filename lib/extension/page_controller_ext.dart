@@ -21,6 +21,10 @@
 import 'package:fluda/constants/numbers.dart';
 import 'package:flutter/material.dart';
 
+/// Animates the controlled [PageView] from the current page to the given page.
+///
+/// The animation lasts for the 200 ms and follows the [Curves.easeOut].
+/// The returned [Future] resolves when the animation completes.
 extension PageControllerExt on PageController {
   Future<void> goTo(int page) {
     return this.animateToPage(
