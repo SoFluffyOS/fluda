@@ -11,9 +11,12 @@
 |`ThemeData get theme`|`context.theme`|`Theme.of(context)`|
 |`ThemeData get textTheme`|`context.textTheme`|`Theme.of(context).textTheme`|
 |`NavigatorState get navigator`|`context.navigator`|`Navigator.of(context)`|
-|`T pop<T>([T result])`|`context.pop()`|`Navigator.of(context).pop()`|
-|`hideKeyboard()`|`context.hideKeyboard()`|`if (!FocusScope.of(context).hasPrimaryFocus) FocusScope.of(context).unfocus()`|
 |`Future showAlertDialog({String title, @required String message, closeButtonTitle = "OK"})`|`context.showDialog(message: "Fluda"`)|[Check out the code](https://github.com/simonpham/fluda/blob/master/lib/extension/build_context_ext.dart)|
+
+#### FocusScopedNode
+|Extension|Example Usage|Original Equivalent|
+|---|---|---|
+|`hideKeyboard()`|`context.focus.hideKeyboard()`|`if (!FocusScope.of(context).hasPrimaryFocus) FocusScope.of(context).unfocus()`|
 
 #### Boolean
 |Extension|Example Usage|Original Equivalent|
@@ -34,6 +37,9 @@
 |Extension|Example Usage|Original Equivalent|
 |---|---|---|
 |`bool get isEmptyOrNull`|`"Hello".isEmptyOrNull`|`"Hello" == null ⎮⎮ "Hello".isEmpty`|
+|`int toInt()`|`"23".toInt()`|`int.parse("23")`|
+|`double toDouble()`|`"23.3".toDouble()`|`double.parse("23.3")`|
+|`bool validate()`|`"Simon Pham".validate(RegexUtils.name)`|`RegExp(nameRegex).hasMatch("Simon Pham")`|
 |`bool validateEmail()`|`"email@email.com".validateEmail()`|`RegExp(emailRegex).hasMatch("email@email.com")`|
 |`Future launch()`|`"https://some.url".launch()`|`if (await url.canLaunch(this)) url.launch(this)`|
 
@@ -49,7 +55,6 @@
 |---|---|---|
 |`Future<void> goTo(double position)`|`scrollController.goTo(233.99)`|Animate Scroll widget to position `233.99` smoothly|
 
-
 #### TextEditingController
 
 |Extension|Example Usage|Description|
@@ -59,5 +64,17 @@
 #### Widget
 
 |Extension|Example Usage|Description|
+|---|---|---|
+|`// TODO: complete documentation`| | |
+
+#### Constants
+
+|Constant|Value|
+|---|---|
+|`// TODO: complete documentation`| |
+
+#### Utility functions
+
+|Function|Example Usage|Description|
 |---|---|---|
 |`// TODO: complete documentation`| | |
