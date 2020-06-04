@@ -25,6 +25,10 @@ import 'bool_ext.dart';
 
 extension BuildContextExt on BuildContext {
   /// Hide the soft keyboard off the screen.
+  ///
+  /// Deprecated. Will be removed in the next version.
+  /// Should use [context.focus.hideKeyboard()] instead.
+  @deprecated
   void hideKeyboard() {
     if (!this.focus.hasPrimaryFocus) {
       this.focus.unfocus();
@@ -63,9 +67,9 @@ extension BuildContextExt on BuildContext {
   /// Text with a color that contrasts with the card and canvas colors.
   ///
   /// [Deprecated]. Will be removed in the next version.
-  /// There are other text theme such as [ThemeData.primaryTextTheme] or
-  /// [ThemeData.accentTextTheme] that are also useful.
-  /// Should call from [BuildContext.theme] instead.
+  /// There are other text theme such as [context.theme.primaryTextTheme] or
+  /// [context.theme.accentTextTheme] that are also useful.
+  /// Should call [context.theme.textTheme] instead.
   @deprecated
   TextTheme get textTheme {
     return Theme.of(this).textTheme;
