@@ -19,6 +19,7 @@
  */
 
 import 'package:fluda/utils/string_utils.dart';
+import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart' as url;
 
 extension StringExt on String {
@@ -49,9 +50,26 @@ extension StringExt on String {
     return RegexUtils.check(this, RegexUtils.email);
   }
 
-  Future launch() async {
+  Future<bool> launch({
+    bool forceSafariVC,
+    bool forceWebView,
+    bool enableJavaScript,
+    bool enableDomStorage,
+    bool universalLinksOnly,
+    Map<String, String> headers,
+    Brightness statusBarBrightness,
+  }) async {
     if (await url.canLaunch(this)) {
-      return url.launch(this);
+      return url.launch(
+        this,
+        forceSafariVC: forceSafariVC,
+        forceWebView: forceWebView,
+        enableJavaScript: enableJavaScript,
+        enableDomStorage: enableDomStorage,
+        universalLinksOnly: universalLinksOnly,
+        headers: headers,
+      );
     }
+    return false;
   }
 }
