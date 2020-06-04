@@ -6,7 +6,7 @@ Fluda is a library which makes Flutter application development faster and easier
 [Feedback](https://github.com/simonpham/fluda/issues) and [Pull Requests](https://github.com/simonpham/fluda/pulls) are most welcome!
 
 ## Usage
-#### Check the example project's [README.md](https://github.com/simonpham/fluda/blob/master/example/README.md) for some example usages.
+Check the example project's [README.md](https://github.com/simonpham/fluda/blob/master/example/README.md) for some example usages.
 
 ## Issues
 
