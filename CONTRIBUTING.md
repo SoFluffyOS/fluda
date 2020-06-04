@@ -5,9 +5,13 @@ email, or any other method with the owners of this repository before making a ch
 
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
-## Commit convention
+## Convention
 
-When you commit, please follow the convention from the below website
+### Coding
+Please read through [Effective Dart](https://dart.dev/guides/language/effective-dart/style) to write consistent, robust, fast code.
+
+### Commit
+When you commit, please follow the convention from the below website:
 https://www.conventionalcommits.org/
 
 ## Pull Request Process
@@ -18,7 +22,9 @@ https://www.conventionalcommits.org/
    variables, exposed ports, useful file locations and container parameters.
 3. Increase the version numbers in any examples files and the README.md to the new version that this
    Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
-4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you 
+4. Make sure to reformat the code to follow the conventions.
+5. Run `flutter analyze` and resolve if there is any issue.
+6. You may merge the Pull Request in once you have the sign-off of two other developers or the repository owner, or if you 
    do not have permission to do that, you may request the second reviewer to merge it for you.
 
 ## Code of Conduct
