@@ -21,6 +21,19 @@
 import 'package:flutter/widgets.dart';
 
 extension BoolExt on bool {
+  /// Return `yes` if the boolean is true, otherwise return `no`
+  ///
+  /// When `no` is not specified, it will return `null` or
+  /// return [SizedBox] if `yes` is a [Widget]
+  ///
+  /// Example usage:
+  /// ```dart
+  /// Widget buildText(BuildContext context, bool shouldGreet) {
+  ///   return shouldGreet.ifTrue(
+  ///     Text("Hello"),
+  ///   );
+  /// }
+  /// ```
   ifTrue(yes, [no]) {
     if (yes is Widget && this == false) {
       return no ?? SizedBox();
