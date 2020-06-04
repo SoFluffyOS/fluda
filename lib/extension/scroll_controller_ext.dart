@@ -21,6 +21,15 @@
 import 'package:fluda/constants/numbers.dart';
 import 'package:flutter/widgets.dart';
 
+/// Animates the position from its current value to the given value.
+///
+/// Any active animation is canceled. If the user is currently scrolling, that
+/// action is canceled.
+///
+/// The animation lasts for the 200 ms and follows the [Curves.easeOut].
+///
+/// The returned [Future] will complete when the animation ends, whether it
+/// completed successfully or whether it was interrupted prematurely.
 extension ScrollControllerExtension on ScrollController {
   Future<void> goTo(double offset) {
     return this.animateTo(
