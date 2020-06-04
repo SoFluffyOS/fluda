@@ -25,10 +25,26 @@ extension StringExt on String {
   /// Return `true` if the string [this] is `null` or empty
   bool get isEmptyOrNull => this == null || isEmpty;
 
+  /// Returns whether the regular expression `pattern`
+  /// has a match in `this` string.
+  ///
+  /// For some pre-defined regular expressions, check out [RegexUtils]
+  ///
+  /// Example usage
+  /// ```dart
+  /// final String greetings = "Hello World";
+  ///
+  /// if (greetings.validate(RegexUtils.name)) {
+  ///   return "Hello Mr $greetings";
+  /// } else {
+  ///   return "$greetings is not a name";
+  /// }
+  /// ```
   bool validate(Pattern pattern) {
     return RegexUtils.check(this, pattern);
   }
 
+  /// Returns whether `this` string is a valid email address
   bool validateEmail() {
     return RegexUtils.check(this, RegexUtils.email);
   }
