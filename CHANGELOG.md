@@ -1,3 +1,11 @@
+## [0.2.1] - July 20, 2020.
+
+* Fix `marginBottom()` widget extension function.
+* Add `isNotEmptyOrNull` string extension getter.
+* Add `dial()` and `sendMail()` string extension method.
+* Add `FludaX.x0_5 = FludaX.x * 0.5` constant.
+* Fix USAGE documentation typos.
+
 ## [0.2.0] - June 05, 2020.
 * **[Deprecated]** `context.hideKeyboard()`. Use `context.focus.hideKeyboard()` instead.
 * **[Deprecated]** `context.pop()`. Use `context.navigator.pop()` instead.
