@@ -26,6 +26,9 @@ extension StringExt on String {
   /// Return `true` if the string [this] is `null` or empty
   bool get isEmptyOrNull => this == null || isEmpty;
 
+  /// Return `true` if the string [this] is not `null` or empty
+  bool get isNotEmptyOrNull => this != null && isNotEmpty;
+
   /// Parse `this` string as a, possibly signed, integer literal
   /// and return its value.
   int toInt() {
