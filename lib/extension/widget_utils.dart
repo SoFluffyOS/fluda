@@ -53,7 +53,7 @@ extension WidgetExt on Widget {
 
   Widget marginBottom([num factor = 2]) {
     return Container(
-      margin: EdgeInsets.only(top: FludaX.x * factor),
+      margin: EdgeInsets.only(bottom: FludaX.x * factor),
       child: this,
     );
   }
