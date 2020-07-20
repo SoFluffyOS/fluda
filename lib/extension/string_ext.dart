@@ -129,4 +129,12 @@ extension StringExt on String {
     }
     return false;
   }
+
+  Future<bool> dial() {
+    return "tel:${this}".launch();
+  }
+
+  Future<bool> sendMail() {
+    return "mailto:${this}".launch();
+  }
 }
