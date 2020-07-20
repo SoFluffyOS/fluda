@@ -1,200 +1,477 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
-  <meta name="generator" content="made with love by dartdoc 0.31.0">
-  <meta name="description" content="fluda API docs, for the Dart programming language.">
-  <title>fluda - Dart API docs</title>
+<html><head><style>
 
-  
-  <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500,400i,400,300|Source+Sans+Pro:400,300,700" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="static-assets/github.css">
-  <link rel="stylesheet" href="static-assets/styles.css">
-  <link rel="icon" href="static-assets/favicon.png">
+pre,
+code {
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  background-color: #333;
+  border: solid 1px #444;
+  padding: 0 4px;
+  line-height: 1.5;
+}
 
-</head>
+pre {
+  padding: .5rem;
+  line-height: 1.25;
+  overflow-x: scroll;
+}
 
-<body data-base-href=""
-      data-using-base-href="false">
+@media print {
+  *,
+  *:before,
+  *:after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
 
-<div id="overlay-under-drawer"></div>
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
 
-<header id="title">
-  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
-  <ol class="breadcrumbs gt-separated dark hidden-xs">
-    <li><a href="https://fluda.simonit.dev">fluda package</a></li>
-  </ol>
-  <div class="self-name">fluda</div>
-  <form class="search navbar-right" role="search">
-    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
-  </form>
-</header>
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
 
-<main>
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
 
-  <div id="dartdoc-sidebar-left" class="col-xs-6 col-sm-3 col-md-2 sidebar sidebar-offcanvas-left">
-    <header id="header-search-sidebar" class="hidden-l">
-      <form class="search-sidebar" role="search">
-        <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
-      </form>
-    </header>
-    
-    <ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
-      <li><a href="https://fluda.simonit.dev">fluda package</a></li>
-    </ol>
-    
-    <h5 class="hidden-xs"><span class="package-name">fluda</span> <span class="package-kind">package</span></h5>
-    <ol>
-          <li class="section-title">Libraries</li>
-          <li><a href="extension_bool_ext/extension_bool_ext-library.html">bool_ext</a></li>
-          <li><a href="extension_build_context_ext/extension_build_context_ext-library.html">build_context_ext</a></li>
-          <li><a href="fluda/fluda-library.html">fluda</a></li>
-          <li><a href="extension_focus_scope_node_ext/extension_focus_scope_node_ext-library.html">focus_scope_node_ext</a></li>
-          <li><a href="extension_num_ext/extension_num_ext-library.html">num_ext</a></li>
-          <li><a href="constants_numbers/constants_numbers-library.html">numbers</a></li>
-          <li><a href="extension_page_controller_ext/extension_page_controller_ext-library.html">page_controller_ext</a></li>
-          <li><a href="extension_scroll_controller_ext/extension_scroll_controller_ext-library.html">scroll_controller_ext</a></li>
-          <li><a href="extension_string_ext/extension_string_ext-library.html">string_ext</a></li>
-          <li><a href="utils_string_utils/utils_string_utils-library.html">string_utils</a></li>
-          <li><a href="widgets_tappable/widgets_tappable-library.html">tappable</a></li>
-          <li><a href="extension_text_editing_controller_ext/extension_text_editing_controller_ext-library.html">text_editing_controller_ext</a></li>
-          <li><a href="utils_utils/utils_utils-library.html">utils</a></li>
-          <li><a href="extension_widget_utils/extension_widget_utils-library.html">widget_utils</a></li>
-    </ol>
-  </div>
+  a[href^="#"]:after,
+  a[href^="javascript:"]:after {
+    content: "";
+  }
 
-  <div id="dartdoc-main-content" class="col-xs-12 col-sm-9 col-md-8 main-content">
-      <section class="desc markdown">
-        <h1 id="fluda">Fluda</h1>
-<p>Fluda is a library which makes Flutter application development faster and easier. It makes your code clean and easy to read.</p>
-<p><em>Note</em>: Fluda is still under development.
-<a href="https://github.com/simonpham/fluda/issues">Feedback</a> and <a href="https://github.com/simonpham/fluda/pulls">Pull Requests</a> are most welcome!</p>
-<h2 id="usage">Usage</h2>
-<p>Check the example project's <a href="https://github.com/simonpham/fluda/blob/master/example/README.md">README.md</a> for some example usages.</p>
-<h2 id="issues">Issues</h2>
-<p>Please file Fluda specific issues, bugs, or feature requests in our <a href="https://github.com/simonpham/fluda/issues/new">issue tracker</a>.</p>
-<p>Plugin issues that are not specific to Fluda can be filed in the <a href="https://github.com/flutter/flutter/issues/new">Flutter issue tracker</a>.</p>
-<h2 id="contributing">Contributing</h2>
-<p>If you wish to contribute a change to any of the existing plugins in this repo,
-please review our <a href="https://github.com/simonpham/fluda/blob/master/CONTRIBUTING.md">contribution guide</a>,
-and send a <a href="https://github.com/simonpham/fluda/pulls">pull request</a>.</p>
-      </section>
-      
-        <section class="summary">
-            <h2>Libraries</h2>
-          <dl>
-            <dt id="bool_ext">
-              <span class="name"><a href="extension_bool_ext/extension_bool_ext-library.html">bool_ext</a></span>             
-            </dt>
-            <dd>
-               
-            </dd>
-            <dt id="build_context_ext">
-              <span class="name"><a href="extension_build_context_ext/extension_build_context_ext-library.html">build_context_ext</a></span>             
-            </dt>
-            <dd>
-               
-            </dd>
-            <dt id="fluda">
-              <span class="name"><a href="fluda/fluda-library.html">fluda</a></span>             
-            </dt>
-            <dd>
-               
-            </dd>
-            <dt id="focus_scope_node_ext">
-              <span class="name"><a href="extension_focus_scope_node_ext/extension_focus_scope_node_ext-library.html">focus_scope_node_ext</a></span>             
-            </dt>
-            <dd>
-               
-            </dd>
-            <dt id="num_ext">
-              <span class="name"><a href="extension_num_ext/extension_num_ext-library.html">num_ext</a></span>             
-            </dt>
-            <dd>
-               
-            </dd>
-            <dt id="numbers">
-              <span class="name"><a href="constants_numbers/constants_numbers-library.html">numbers</a></span>             
-            </dt>
-            <dd>
-               
-            </dd>
-            <dt id="page_controller_ext">
-              <span class="name"><a href="extension_page_controller_ext/extension_page_controller_ext-library.html">page_controller_ext</a></span>             
-            </dt>
-            <dd>
-               
-            </dd>
-            <dt id="scroll_controller_ext">
-              <span class="name"><a href="extension_scroll_controller_ext/extension_scroll_controller_ext-library.html">scroll_controller_ext</a></span>             
-            </dt>
-            <dd>
-               
-            </dd>
-            <dt id="string_ext">
-              <span class="name"><a href="extension_string_ext/extension_string_ext-library.html">string_ext</a></span>             
-            </dt>
-            <dd>
-               
-            </dd>
-            <dt id="string_utils">
-              <span class="name"><a href="utils_string_utils/utils_string_utils-library.html">string_utils</a></span>             
-            </dt>
-            <dd>
-               
-            </dd>
-            <dt id="tappable">
-              <span class="name"><a href="widgets_tappable/widgets_tappable-library.html">tappable</a></span>             
-            </dt>
-            <dd>
-               
-            </dd>
-            <dt id="text_editing_controller_ext">
-              <span class="name"><a href="extension_text_editing_controller_ext/extension_text_editing_controller_ext-library.html">text_editing_controller_ext</a></span>             
-            </dt>
-            <dd>
-               
-            </dd>
-            <dt id="utils">
-              <span class="name"><a href="utils_utils/utils_utils-library.html">utils</a></span>             
-            </dt>
-            <dd>
-               
-            </dd>
-            <dt id="widget_utils">
-              <span class="name"><a href="extension_widget_utils/extension_widget_utils-library.html">widget_utils</a></span>             
-            </dt>
-            <dd>
-               
-            </dd>
-          </dl>
-        </section>
+  pre,
+  blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
 
-  </div> <!-- /.main-content -->
+  thead {
+    display: table-header-group;
+  }
 
-  <div id="dartdoc-sidebar-right" class="col-xs-6 col-sm-6 col-md-2 sidebar sidebar-offcanvas-right">
-  </div>
+  tr,
+  img {
+    page-break-inside: avoid;
+  }
 
-</main>
+  img {
+    max-width: 100% !important;
+  }
 
-<footer>
-  <span class="no-break">
-    fluda
-      0.1.0
-  </span>
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
 
-</footer>
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="static-assets/typeahead.bundle.min.js"></script>
-<script src="static-assets/highlight.pack.js"></script>
-<script src="static-assets/URI.js"></script>
-<script src="static-assets/script.js"></script>
+a,
+a:visited {
+  color: #01ff70;
+}
 
+a:hover,
+a:focus,
+a:active {
+  color: #2ecc40;
+}
 
-</body>
+.retro-no-decoration {
+  text-decoration: none;
+}
 
-</html>
+html {
+  font-size: 12px;
+}
+
+@media screen and (min-width: 32rem) and (max-width: 48rem) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  line-height: 1.85;
+}
+
+p,
+.retro-p {
+  font-size: 1rem;
+  margin-bottom: 1.3rem;
+}
+
+h1,
+.retro-h1,
+h2,
+.retro-h2,
+h3,
+.retro-h3,
+h4,
+.retro-h4 {
+  margin: 1.414rem 0 .5rem;
+  font-weight: inherit;
+  line-height: 1.42;
+}
+
+h1,
+.retro-h1 {
+  margin-top: 0;
+  font-size: 3.998rem;
+}
+
+h2,
+.retro-h2 {
+  font-size: 2.827rem;
+}
+
+h3,
+.retro-h3 {
+  font-size: 1.999rem;
+}
+
+h4,
+.retro-h4 {
+  font-size: 1.414rem;
+}
+
+h5,
+.retro-h5 {
+  font-size: 1.121rem;
+}
+
+h6,
+.retro-h6 {
+  font-size: .88rem;
+}
+
+small,
+.retro-small {
+  font-size: .707em;
+}
+
+/* https://github.com/mrmrs/fluidity */
+
+img,
+canvas,
+iframe,
+video,
+svg,
+select,
+textarea {
+  max-width: 100%;
+}
+
+html,
+body {
+  background-color: #222;
+  min-height: 100%;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  color: #fafafa;
+  font-family: "Courier New";
+  line-height: 1.45;
+  margin: 6rem auto 1rem;
+  max-width: 48rem;
+  padding: .25rem;
+}
+
+pre {
+  background-color: #333;
+}
+
+blockquote {
+  border-left: 3px solid #01ff70;
+  padding-left: 1rem;
+}</style></head><body><h2 id="fluda-basic-example-usage">Fluda Basic Example Usage</h2>
+<p><em>Note</em>: This documentation hasn&#39;t been finished yet. There may be some part of the instruction is missing. Please stay tuned.</p>
+<h3 id="extensions">Extensions</h3>
+<h4 id="buildcontext">BuildContext</h4>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Example Usage</th>
+<th>Original Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MediaQueryData get query</code></td>
+<td><code>context.query</code></td>
+<td><code>MediaQuery.of(context)</code></td>
+</tr>
+<tr>
+<td><code>FocusScopeNode get focus</code></td>
+<td><code>context.focus</code></td>
+<td><code>FocusScope.of(context)</code></td>
+</tr>
+<tr>
+<td><code>ThemeData get theme</code></td>
+<td><code>context.theme</code></td>
+<td><code>Theme.of(context)</code></td>
+</tr>
+<tr>
+<td><code>NavigatorState get navigator</code></td>
+<td><code>context.navigator</code></td>
+<td><code>Navigator.of(context)</code></td>
+</tr>
+<tr>
+<td><code>Future showAlertDialog({String title, @required String message, closeButtonTitle = &quot;OK&quot;})</code></td>
+<td><code>context.showDialog(message: &quot;Fluda&quot;</code>)</td>
+<td><a href="https://github.com/simonpham/fluda/blob/master/lib/extension/build_context_ext.dart">Check out the code</a></td>
+</tr>
+</tbody>
+</table>
+<h4 id="focusscopednode">FocusScopedNode</h4>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Example Usage</th>
+<th>Original Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hideKeyboard()</code></td>
+<td><code>context.focus.hideKeyboard()</code></td>
+<td><code>if (!FocusScope.of(context).hasPrimaryFocus) FocusScope.of(context).unfocus()</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="boolean">Boolean</h4>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Example Usage</th>
+<th>Original Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ifTrue(yes, [no])</code></td>
+<td><code>someBool.ifTrue(Text(&quot;Hello&quot;))</code></td>
+<td><code>someBool ? Text(&quot;Hello&quot;) : SizedBox()</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>someBool.ifTrue(firstVariable, secondVariable)</code></td>
+<td><code>someBool ? firstVariable : secondVariable</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="number">Number</h4>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Example Usage</th>
+<th>Original Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bool get isEven</code></td>
+<td><code>5.isEven</code></td>
+<td><code>(5 % 2 == 0)</code></td>
+</tr>
+<tr>
+<td><code>bool get isOdd</code></td>
+<td><code>5.isOdd</code></td>
+<td><code>(5 % 2 != 0)</code></td>
+</tr>
+<tr>
+<td><code>bool get isPositive</code></td>
+<td><code>5.isPositive</code></td>
+<td><code>(5 &gt; 0)</code></td>
+</tr>
+<tr>
+<td><code>bool get isNegative</code></td>
+<td><code>5.isNegative</code></td>
+<td><code>(5 &lt; 0)</code></td>
+</tr>
+<tr>
+<td><code>Iterable&lt;int&gt; to(int end, {int step = 1})</code></td>
+<td><code>2.to(5)</code></td>
+<td><code>[2, 3, 4, 5]</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="string">String</h4>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Example Usage</th>
+<th>Original Equivalent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bool get isEmptyOrNull</code></td>
+<td><code>&quot;Hello&quot;.isEmptyOrNull</code></td>
+<td><code>&quot;Hello&quot; == null ⎮⎮ &quot;Hello&quot;.isEmpty</code></td>
+</tr>
+<tr>
+<td><code>bool get isNotEmptyOrNull</code></td>
+<td><code>&quot;Hello&quot;.isNotEmptyOrNull</code></td>
+<td><code>&quot;Hello&quot; != null &amp;&amp; &quot;Hello&quot;.isNotEmpty</code></td>
+</tr>
+<tr>
+<td><code>int toInt()</code></td>
+<td><code>&quot;23&quot;.toInt()</code></td>
+<td><code>int.parse(&quot;23&quot;)</code></td>
+</tr>
+<tr>
+<td><code>double toDouble()</code></td>
+<td><code>&quot;23.3&quot;.toDouble()</code></td>
+<td><code>double.parse(&quot;23.3&quot;)</code></td>
+</tr>
+<tr>
+<td><code>bool validate()</code></td>
+<td><code>&quot;Simon Pham&quot;.validate(RegexUtils.name)</code></td>
+<td><code>RegExp(nameRegex).hasMatch(&quot;Simon Pham&quot;)</code></td>
+</tr>
+<tr>
+<td><code>bool validateEmail()</code></td>
+<td><code>&quot;email@email.com&quot;.validateEmail()</code></td>
+<td><code>RegExp(emailRegex).hasMatch(&quot;email@email.com&quot;)</code></td>
+</tr>
+<tr>
+<td><code>Future launch()</code></td>
+<td><code>&quot;https://some.url&quot;.launch()</code></td>
+<td><code>if (await url.canLaunch(&quot;https://some.url&quot;)) url.launch(&quot;https://some.url&quot;)</code></td>
+</tr>
+<tr>
+<td><code>Future dial()</code></td>
+<td><code>&quot;0987654321&quot;.dial()</code></td>
+<td><code>if (await url.canLaunch(&quot;tel:0987654321&quot;)) url.launch(&quot;tel:0987654321&quot;)</code></td>
+</tr>
+<tr>
+<td><code>Future sendMail()</code></td>
+<td><code>&quot;me@email.com&quot;.sendMail()</code></td>
+<td><code>if (await url.canLaunch(&quot;mailto:me@email.com&quot;)) url.launch(&quot;mailto:me@email.com&quot;)</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="pagecontroller">PageController</h4>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Example Usage</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Future&lt;void&gt; goTo(int page)</code></td>
+<td><code>pageController.goTo(2)</code></td>
+<td>Animate PageView to page index <code>2</code> smoothly</td>
+</tr>
+</tbody>
+</table>
+<h4 id="scrollcontroller">ScrollController</h4>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Example Usage</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Future&lt;void&gt; goTo(double position)</code></td>
+<td><code>scrollController.goTo(233.99)</code></td>
+<td>Animate Scroll widget to position <code>233.99</code> smoothly</td>
+</tr>
+</tbody>
+</table>
+<h4 id="texteditingcontroller">TextEditingController</h4>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Example Usage</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>void selectAll()</code></td>
+<td><code>textEditingController.selectAll()</code></td>
+<td>Select all text in the text field</td>
+</tr>
+</tbody>
+</table>
+<h4 id="widget">Widget</h4>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Example Usage</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>// TODO: complete documentation</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="constants">Constants</h4>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>// TODO: complete documentation</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="utility-functions">Utility functions</h4>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Example Usage</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>// TODO: complete documentation</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</body></html>
