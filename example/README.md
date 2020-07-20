@@ -9,7 +9,6 @@
 |`MediaQueryData get query`|`context.query`|`MediaQuery.of(context)`|
 |`FocusScopeNode get focus`|`context.focus`|`FocusScope.of(context)`|
 |`ThemeData get theme`|`context.theme`|`Theme.of(context)`|
-|`ThemeData get textTheme`|`context.textTheme`|`Theme.of(context).textTheme`|
 |`NavigatorState get navigator`|`context.navigator`|`Navigator.of(context)`|
 |`Future showAlertDialog({String title, @required String message, closeButtonTitle = "OK"})`|`context.showDialog(message: "Fluda"`)|[Check out the code](https://github.com/simonpham/fluda/blob/master/lib/extension/build_context_ext.dart)|
 
@@ -28,7 +27,7 @@
 |Extension|Example Usage|Original Equivalent|
 |---|---|---|
 |`bool get isEven`|`5.isEven`|`(5 % 2 == 0)`|
-|`bool get isOdd`|`5.isEven`|`(5 % 2 != 0)`|
+|`bool get isOdd`|`5.isOdd`|`(5 % 2 != 0)`|
 |`bool get isPositive`|`5.isPositive`|`(5 > 0)`|
 |`bool get isNegative`|`5.isNegative`|`(5 < 0)`|
 |`Iterable<int> to(int end, {int step = 1})`|`2.to(5)`|`[2, 3, 4, 5]`|
@@ -37,11 +36,14 @@
 |Extension|Example Usage|Original Equivalent|
 |---|---|---|
 |`bool get isEmptyOrNull`|`"Hello".isEmptyOrNull`|`"Hello" == null ⎮⎮ "Hello".isEmpty`|
+|`bool get isNotEmptyOrNull`|`"Hello".isNotEmptyOrNull`|`"Hello" != null && "Hello".isNotEmpty`|
 |`int toInt()`|`"23".toInt()`|`int.parse("23")`|
 |`double toDouble()`|`"23.3".toDouble()`|`double.parse("23.3")`|
 |`bool validate()`|`"Simon Pham".validate(RegexUtils.name)`|`RegExp(nameRegex).hasMatch("Simon Pham")`|
 |`bool validateEmail()`|`"email@email.com".validateEmail()`|`RegExp(emailRegex).hasMatch("email@email.com")`|
-|`Future launch()`|`"https://some.url".launch()`|`if (await url.canLaunch(this)) url.launch(this)`|
+|`Future launch()`|`"https://some.url".launch()`|`if (await url.canLaunch("https://some.url")) url.launch("https://some.url")`|
+|`Future dial()`|`"0987654321".dial()`|`if (await url.canLaunch("tel:0987654321")) url.launch("tel:0987654321")`|
+|`Future sendMail()`|`"me@email.com".sendMail()`|`if (await url.canLaunch("mailto:me@email.com")) url.launch("mailto:me@email.com")`|
 
 #### PageController
 
