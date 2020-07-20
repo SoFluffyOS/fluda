@@ -19,6 +19,7 @@
  */
 
 class FludaX {
+  static const double x0_5 = x * .5;
   static const double x = 8.0;
   static const double x2 = x * 2;
   static const double x3 = x * 3;
