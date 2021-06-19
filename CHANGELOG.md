@@ -1,3 +1,7 @@
+## [1.0.1] - June 19, 2021.
+
+* Fix warnings.
+
 ## [1.0.0] - June 19, 2021.
 
 * Migrate to null-safety.

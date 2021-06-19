@@ -125,14 +125,14 @@ extension BuildContextExt on BuildContext {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(FludaX.x3),
           ),
-          title: (title != null).ifTrue(
-            Text(
-              title ?? "",
-              style: context.theme.textTheme.headline5,
-            ),
-          ),
+          title: (title != null)
+              ? Text(
+                  title,
+                  style: context.theme.textTheme.headline5,
+                )
+              : const SizedBox(),
           content: Text(
-            message ?? "",
+            message,
             style: context.theme.textTheme.headline6,
           ),
           actions: <Widget>[
