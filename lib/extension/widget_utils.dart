@@ -117,11 +117,11 @@ extension WidgetExt on Widget {
   }
 
   Widget tappable({
-    GestureTapCallback onTap,
-    GestureTapCallback onDoubleTap,
-    GestureLongPressCallback onLongPress,
-    GestureTapDownCallback onTapDown,
-    GestureTapCancelCallback onTapCancel,
+    GestureTapCallback? onTap,
+    GestureTapCallback? onDoubleTap,
+    GestureLongPressCallback? onLongPress,
+    GestureTapDownCallback? onTapDown,
+    GestureTapCancelCallback? onTapCancel,
   }) {
     return Tappable(
       child: this,

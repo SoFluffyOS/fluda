@@ -98,7 +98,7 @@ extension BuildContextExt on BuildContext {
   /// [Deprecated]. Will be removed in the next version.
   /// Should call [BuildContext.navigator.pop()] instead.
   @deprecated
-  T pop<T>([T result]) {
+  T? pop<T>([T? result]) {
     Navigator.of(this).pop(result);
     return result;
   }
@@ -114,8 +114,8 @@ extension BuildContextExt on BuildContext {
   /// }
   /// ```
   Future showAlertDialog({
-    String title,
-    @required String message,
+    String? title,
+    required String message,
     closeButtonTitle = "OK",
   }) {
     return showDialog<void>(
@@ -136,7 +136,7 @@ extension BuildContextExt on BuildContext {
             style: context.theme.textTheme.headline6,
           ),
           actions: <Widget>[
-            FlatButton(
+            TextButton(
               child: Text(
                 closeButtonTitle,
                 style: context.theme.textTheme.button,

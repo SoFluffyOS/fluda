@@ -4,7 +4,7 @@ typedef ErrorCallback(T);
 ///
 /// Runs function [ErrorCallback] `onError` when there is an error
 /// Returns `true` whether there is no error.
-bool catchAll(Function function, {ErrorCallback onError}) {
+bool catchAll(Function function, {ErrorCallback? onError}) {
   try {
     function();
     return true;
@@ -20,7 +20,7 @@ bool catchAll(Function function, {ErrorCallback onError}) {
 ///
 /// Runs function [ErrorCallback] `onError` when there is an error
 /// Returns `true` whether there is no error.
-Future<bool> asyncCatchAll(Function function, {ErrorCallback onError}) async {
+Future<bool> asyncCatchAll(Function function, {ErrorCallback? onError}) async {
   try {
     await function();
     return true;

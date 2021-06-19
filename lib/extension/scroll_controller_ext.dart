@@ -31,11 +31,11 @@ import 'package:flutter/widgets.dart';
 /// The returned [Future] will complete when the animation ends, whether it
 /// completed successfully or whether it was interrupted prematurely.
 extension ScrollControllerExtension on ScrollController {
-  Future<void> goTo(double offset) {
+  Future<void> goTo(double offset, {Duration? duration, Curve? curve}) {
     return this.animateTo(
       offset,
-      duration: FludaDuration.ms2,
-      curve: Curves.easeOut,
+      duration: duration ?? FludaDuration.ms2,
+      curve: curve ?? Curves.easeOut,
     );
   }
 }

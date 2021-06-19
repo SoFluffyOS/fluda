@@ -23,16 +23,16 @@ import 'package:flutter/material.dart';
 const _animationDuration = 75;
 
 class Tappable extends StatefulWidget {
-  final Widget child;
+  final Widget? child;
 
-  final GestureTapCallback onTap;
-  final GestureTapCallback onDoubleTap;
-  final GestureLongPressCallback onLongPress;
-  final GestureTapDownCallback onTapDown;
-  final GestureTapCancelCallback onTapCancel;
+  final GestureTapCallback? onTap;
+  final GestureTapCallback? onDoubleTap;
+  final GestureLongPressCallback? onLongPress;
+  final GestureTapDownCallback? onTapDown;
+  final GestureTapCancelCallback? onTapCancel;
 
   const Tappable({
-    Key key,
+    Key? key,
     this.child,
     this.onTap,
     this.onDoubleTap,
@@ -46,8 +46,8 @@ class Tappable extends StatefulWidget {
 }
 
 class _TappableState extends State<Tappable> with TickerProviderStateMixin {
-  AnimationController animationController;
-  Animation<double> animation;
+  late final AnimationController animationController;
+  late final Animation<double> animation;
 
   @override
   void initState() {
@@ -86,10 +86,10 @@ class _TappableState extends State<Tappable> with TickerProviderStateMixin {
         },
       ),
       onTap: () async {
-        if (widget.onTap == null) {
+        if (widget.onTap != null) {
           return;
         }
-        widget.onTap();
+        widget.onTap!();
         await animationController.forward();
         animationController.reverse();
       },
@@ -101,7 +101,7 @@ class _TappableState extends State<Tappable> with TickerProviderStateMixin {
         }
         animationController.forward();
         if (widget.onTapDown != null) {
-          widget.onTapDown(details);
+          widget.onTapDown!(details);
         }
       },
       onTapUp: (TapUpDetails details) {
@@ -116,7 +116,7 @@ class _TappableState extends State<Tappable> with TickerProviderStateMixin {
         }
         animationController.reverse();
         if (widget.onTapCancel != null) {
-          widget.onTapCancel();
+          widget.onTapCancel!();
         }
       },
     );

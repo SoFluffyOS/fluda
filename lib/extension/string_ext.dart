@@ -22,22 +22,30 @@ import 'package:fluda/utils/string_utils.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart' as url;
 
-extension StringExt on String {
+extension StringExt on String? {
   /// Return `true` if the string [this] is `null` or empty
-  bool get isEmptyOrNull => this == null || isEmpty;
+  bool get isEmptyOrNull => this?.isEmpty ?? true;
 
   /// Return `true` if the string [this] is not `null` or empty
-  bool get isNotEmptyOrNull => this != null && isNotEmpty;
+  bool get isNotEmptyOrNull => this?.isNotEmpty ?? false;
 
   /// Parse `this` string as a, possibly signed, integer literal
   /// and return its value.
-  int toInt() {
-    return int.parse(this);
+  int? toInt({int? defaultValue}) {
+    final String? _copy = this;
+    if (_copy == null) {
+      return defaultValue;
+    }
+    return int.tryParse(_copy);
   }
 
   /// Parse `this` string as an double literal and return its value.
-  double toDouble() {
-    return double.parse(this);
+  double? toDouble({double? defaultValue}) {
+    final String? _copy = this;
+    if (_copy == null) {
+      return defaultValue;
+    }
+    return double.parse(_copy);
   }
 
   /// Returns whether the regular expression `pattern`
@@ -55,13 +63,21 @@ extension StringExt on String {
   ///   return "$greetings is not a name";
   /// }
   /// ```
-  bool validate(Pattern pattern) {
-    return RegexUtils.check(this, pattern);
+  bool validate(String pattern) {
+    final String? _copy = this;
+    if (_copy == null) {
+      return false;
+    }
+    return RegexUtils.check(_copy, pattern);
   }
 
   /// Returns whether `this` string is a valid email address
   bool validateEmail() {
-    return RegexUtils.check(this, RegexUtils.email);
+    final String? _copy = this;
+    if (_copy == null) {
+      return false;
+    }
+    return RegexUtils.check(_copy, RegexUtils.email);
   }
 
   /// Parses the specified URL string and delegates handling of it to the
@@ -108,17 +124,19 @@ extension StringExt on String {
   /// Also return `false` when [universalLinksOnly] is set to true and
   /// the universal link failed to launch
   Future<bool> launch({
-    bool forceSafariVC,
-    bool forceWebView,
-    bool enableJavaScript,
-    bool enableDomStorage,
-    bool universalLinksOnly,
-    Map<String, String> headers,
-    Brightness statusBarBrightness,
+    bool? forceSafariVC,
+    bool forceWebView = false,
+    bool enableJavaScript = false,
+    bool enableDomStorage = false,
+    bool universalLinksOnly = false,
+    Map<String, String> headers = const <String, String>{},
+    Brightness? statusBarBrightness,
+    String? webOnlyWindowName,
   }) async {
-    if (await url.canLaunch(this)) {
+    final _copy = this;
+    if (_copy != null && await url.canLaunch(_copy)) {
       return url.launch(
-        this,
+        _copy,
         forceSafariVC: forceSafariVC,
         forceWebView: forceWebView,
         enableJavaScript: enableJavaScript,

@@ -20,11 +20,13 @@
 
 import 'package:flutter/widgets.dart';
 
+final _dummyFocusNode = FocusNode();
+
 extension FocusScopeNodeExt on FocusScopeNode {
   /// Hide the soft keyboard off the screen.
   void hideKeyboard() {
     if (!this.hasPrimaryFocus) {
-      this.unfocus();
+      this.requestFocus(_dummyFocusNode);
     }
   }
 }

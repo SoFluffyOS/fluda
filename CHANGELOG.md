@@ -1,3 +1,7 @@
+## [1.0.0] - June 19, 2021.
+
+* Migrate to null-safety.
+
 ## [0.2.1] - July 20, 2020.
 
 * Fix `marginBottom()` widget extension function.
