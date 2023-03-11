@@ -26,7 +26,11 @@ import 'package:flutter/material.dart';
 /// The animation lasts for the 200 ms and follows the [Curves.easeOut].
 /// The returned [Future] resolves when the animation completes.
 extension PageControllerExt on PageController {
-  Future<void> goTo(int page, {Duration? duration, Curve? curve}) {
+  Future<void> goTo(
+    int page, {
+    Duration? duration,
+    Curve? curve,
+  }) {
     return this.animateToPage(
       page,
       duration: duration ?? FludaDuration.ms2,

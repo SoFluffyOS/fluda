@@ -24,7 +24,6 @@ library fluda;
 export 'package:fluda/constants/numbers.dart';
 
 /// Extension methods
-export 'package:fluda/extension/bool_ext.dart';
 export 'package:fluda/extension/build_context_ext.dart';
 export 'package:fluda/extension/focus_scope_node_ext.dart';
 export 'package:fluda/extension/num_ext.dart';
@@ -32,7 +31,6 @@ export 'package:fluda/extension/page_controller_ext.dart';
 export 'package:fluda/extension/scroll_controller_ext.dart';
 export 'package:fluda/extension/string_ext.dart';
 export 'package:fluda/extension/text_editing_controller_ext.dart';
-export 'package:fluda/extension/widget_utils.dart';
 
 /// Utility functions
 export 'package:fluda/utils/string_utils.dart';

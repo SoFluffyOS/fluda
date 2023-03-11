@@ -1,3 +1,9 @@
+## [1.1.0] - March 11, 2023.
+* BREAKING: Remove deprecated extensions.
+* Remove url_launcher.
+* Improve name regular expression to support more languages.
+* Improve Tappable to support tooltip, behaviour and onTapUp callback.
+
 ## [1.0.1] - June 19, 2021.
 
 * Fix warnings.

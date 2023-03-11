@@ -18,22 +18,9 @@
  * under the License.
  */
 
-import 'package:fluda/constants/numbers.dart';
 import 'package:flutter/material.dart';
 
-import 'bool_ext.dart';
-import 'focus_scope_node_ext.dart';
-
 extension BuildContextExt on BuildContext {
-  /// Hide the soft keyboard off the screen.
-  ///
-  /// Deprecated. Will be removed in the next version.
-  /// Should use [context.focus.hideKeyboard()] instead.
-  @deprecated
-  void hideKeyboard() {
-    this.focus.hideKeyboard();
-  }
-
   /// Contains information about the current media.
   ///
   /// For example, the [MediaQueryData.size] property contains the width and
@@ -63,17 +50,6 @@ extension BuildContextExt on BuildContext {
     return Theme.of(this);
   }
 
-  /// Text with a color that contrasts with the card and canvas colors.
-  ///
-  /// [Deprecated]. Will be removed in the next version.
-  /// There are other text theme such as [context.theme.primaryTextTheme] or
-  /// [context.theme.accentTextTheme] that are also useful.
-  /// Should call [context.theme.textTheme] instead.
-  @deprecated
-  TextTheme get textTheme {
-    return theme.textTheme;
-  }
-
   /// The state from the closest instance of this class that encloses the given
   /// context.
   ///
@@ -91,61 +67,5 @@ extension BuildContextExt on BuildContext {
   /// instances of [Navigator].
   NavigatorState get navigator {
     return Navigator.of(this);
-  }
-
-  /// Pop the top-most route off the navigator.
-  ///
-  /// [Deprecated]. Will be removed in the next version.
-  /// Should call [BuildContext.navigator.pop()] instead.
-  @deprecated
-  T? pop<T>([T? result]) {
-    Navigator.of(this).pop(result);
-    return result;
-  }
-
-  /// Show a simple dialog with title, message and a close button.
-  ///
-  /// Example usage:
-  /// ```dart
-  /// void _showUploadSuccessDialog(BuildContext context) {
-  ///   context.showDialog(
-  ///     message: "Uploaded successful!",
-  ///   );
-  /// }
-  /// ```
-  Future showAlertDialog({
-    String? title,
-    required String message,
-    closeButtonTitle = "OK",
-  }) {
-    return showDialog<void>(
-      context: this,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(FludaX.x3),
-          ),
-          title: (title != null)
-              ? Text(
-                  title,
-                  style: context.theme.textTheme.headline5,
-                )
-              : const SizedBox(),
-          content: Text(
-            message,
-            style: context.theme.textTheme.headline6,
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: Text(
-                closeButtonTitle,
-                style: context.theme.textTheme.button,
-              ),
-              onPressed: () => this.navigator.pop(),
-            ),
-          ],
-        );
-      },
-    );
   }
 }

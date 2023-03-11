@@ -18,8 +18,6 @@
  * under the License.
  */
 
-import 'bool_ext.dart';
-
 extension NumExt on num {
   /// Returns `true` if the number [this] is even
   bool get isEven => this % 2 == 0;
@@ -44,10 +42,9 @@ extension IntExt on int {
     }
     final count = ((end - this).abs() / step).ceil();
     // Explicit type declaration required for function argument.
-    final int Function(int) generator = (this >= end).ifTrue(
-      (index) => this - (step * index),
-      (index) => this + (step * index),
-    );
+    final int Function(int) generator = this >= end
+        ? (index) => this - (step * index)
+        : (index) => this + (step * index);
     return Iterable<int>.generate(count, generator);
   }
 }

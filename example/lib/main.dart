@@ -1,4 +1,5 @@
 import 'package:fluda/fluda.dart';
+import 'package:fluda/widgets/tappable.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,54 +21,63 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: _buildBody(context),
-      ),
-    );
-  }
-
-  Widget _buildBody(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Text(
-          fludaDescription,
-          style: context.theme.textTheme.bodyText1,
-        ).padHorizontal().marginTop(),
-        TextFormField(
-          controller: TextEditingController(
-            text: "simon@simonit.dev",
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: FludaX.x3,
           ),
-          validator: (text) {
-            return text
-                .validateEmail()
-                .ifTrue("", "Not a valid email address!");
-          },
-          autovalidate: true,
-        ).padHorizontal().marginTop(),
-        Container(
-          color: context.theme.primaryColor,
-          child: Text(
-            "Show Dialog",
-            style: context.theme.primaryTextTheme.button,
-          ).spaceAround(2),
-        ).roundedBorder().center().tappable(onTap: () {
-          context.showAlertDialog(
-            message: "This is a dummy message",
-          );
-        }).marginTop(),
-        Row(
-          children: <Widget>[
-            Container(
-              color: context.theme.primaryColor,
-              child: Text(
-                "Hide keyboard",
-                style: context.theme.primaryTextTheme.button,
-              ).spaceAround(1.5).center(),
-            ).roundedBorder(FludaX.x4).tappable(onTap: () {
-              context.focus.hideKeyboard();
-            }).expand(),
-          ],
-        ).padHorizontal().marginTop(),
-      ],
+          child: Column(
+            children: <Widget>[
+              Text(
+                fludaDescription,
+                style: context.theme.textTheme.bodyLarge,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: FludaX.x2,
+                ),
+                child: TextFormField(
+                  controller: TextEditingController(
+                    text: "simon@simonit.dev",
+                  ),
+                  validator: (text) {
+                    final isValid = text.validateEmail();
+                    return isValid ? null : "Not a valid email address!";
+                  },
+                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(
+                  top: FludaX.x2,
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Tappable(
+                      onTap: () {
+                        context.focus.hideKeyboard();
+                      },
+                      child: Container(
+                        color: context.theme.primaryColor,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: context.theme.primaryColor,
+                          ),
+                          borderRadius: BorderRadius.circular(FludaX.x4),
+                        ),
+                        padding: const EdgeInsets.all(FludaX.x * 1.5),
+                        child: Text(
+                          "Hide keyboard",
+                          style: context.theme.primaryTextTheme.button,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

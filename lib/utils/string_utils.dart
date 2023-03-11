@@ -22,8 +22,7 @@ class RegexUtils {
   static const String email =
       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
-  /// contains only alphanumeric, dot & space character
-  static const String name = r'^[a-zA-Z0-9. ]*$';
+  static const String name = r'^[^\W\d_]+(?:[- ][^\W\d_]+)*[.-]?$';
 
   /// begin with one letter, contains only alphanumeric
   /// and only one dot or underscore in a row (not accept at the end)

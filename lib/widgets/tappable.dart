@@ -20,8 +20,6 @@
 
 import 'package:flutter/material.dart';
 
-const _animationDuration = 75;
-
 class Tappable extends StatefulWidget {
   final Widget? child;
 
@@ -29,7 +27,10 @@ class Tappable extends StatefulWidget {
   final GestureTapCallback? onDoubleTap;
   final GestureLongPressCallback? onLongPress;
   final GestureTapDownCallback? onTapDown;
+  final GestureTapUpCallback? onTapUp;
   final GestureTapCancelCallback? onTapCancel;
+  final HitTestBehavior? behavior;
+  final String? tooltip;
 
   const Tappable({
     Key? key,
@@ -38,14 +39,17 @@ class Tappable extends StatefulWidget {
     this.onDoubleTap,
     this.onLongPress,
     this.onTapDown,
+    this.onTapUp,
     this.onTapCancel,
+    this.behavior,
+    this.tooltip,
   }) : super(key: key);
 
   @override
-  _TappableState createState() => _TappableState();
+  TappableState createState() => TappableState();
 }
 
-class _TappableState extends State<Tappable> with TickerProviderStateMixin {
+class TappableState extends State<Tappable> with TickerProviderStateMixin {
   late final AnimationController animationController;
   late final Animation<double> animation;
 
@@ -54,7 +58,7 @@ class _TappableState extends State<Tappable> with TickerProviderStateMixin {
     super.initState();
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: _animationDuration),
+      duration: const Duration(milliseconds: 75),
     );
     animation = Tween(begin: 1.0, end: 0.9).animate(
       CurvedAnimation(
@@ -72,53 +76,73 @@ class _TappableState extends State<Tappable> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: AnimatedBuilder(
-        animation: animation,
-        builder: (context, _) {
-          return Transform.scale(
-            scale: animation.value,
-            child: Container(
-              color: Colors.transparent,
-              child: widget.child,
-            ),
-          );
+    return Tooltip(
+      message: widget.tooltip ?? '',
+      child: GestureDetector(
+        behavior: widget.behavior,
+        onTap: () async {
+          if (widget.onTap == null) {
+            return;
+          }
+          widget.onTap!();
+          await pressedDown();
+          bounceUp();
         },
+        onDoubleTap: widget.onDoubleTap,
+        onLongPress: widget.onLongPress,
+        onTapDown: (TapDownDetails details) {
+          if (widget.onTap == null) {
+            return;
+          }
+          pressedDown();
+          if (widget.onTapDown != null) {
+            widget.onTapDown!(details);
+          }
+        },
+        onTapUp: (TapUpDetails details) {
+          if (widget.onTap == null) {
+            return;
+          }
+          widget.onTapUp?.call(details);
+          bounceUp();
+        },
+        onTapCancel: () {
+          if (widget.onTap == null) {
+            return;
+          }
+          bounceUp();
+          if (widget.onTapCancel != null) {
+            widget.onTapCancel!();
+          }
+        },
+        child: AnimatedBuilder(
+          animation: animation,
+          builder: (context, _) {
+            return Transform.scale(
+              scale: animation.value,
+              child: Container(
+                color: Colors.transparent,
+                alignment: Alignment.center,
+                child: widget.child,
+              ),
+            );
+          },
+        ),
       ),
-      onTap: () async {
-        if (widget.onTap != null) {
-          return;
-        }
-        widget.onTap!();
-        await animationController.forward();
-        animationController.reverse();
-      },
-      onDoubleTap: widget.onDoubleTap,
-      onLongPress: widget.onLongPress,
-      onTapDown: (TapDownDetails details) {
-        if (widget.onTap == null) {
-          return;
-        }
-        animationController.forward();
-        if (widget.onTapDown != null) {
-          widget.onTapDown!(details);
-        }
-      },
-      onTapUp: (TapUpDetails details) {
-        if (widget.onTap == null) {
-          return;
-        }
-        animationController.reverse();
-      },
-      onTapCancel: () {
-        if (widget.onTap == null) {
-          return;
-        }
-        animationController.reverse();
-        if (widget.onTapCancel != null) {
-          widget.onTapCancel!();
-        }
-      },
     );
+  }
+
+  Future<void> bounceUp() async {
+    if (!mounted) {
+      return;
+    }
+    return animationController.reverse();
+  }
+
+  Future<void> pressedDown() async {
+    if (!mounted) {
+      return;
+    }
+    return animationController.forward();
   }
 }
